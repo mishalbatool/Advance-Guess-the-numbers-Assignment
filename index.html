@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADVANCED GUESS THE NUMBER GAME</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+function guessTheNumberGame(){
+      alert("I have thought of a number between 1 and 100. You have to guess it in 7 tries.😊");
+    alert("Play Game 🐱");
+let secretNumber = 30;
+let scores = 100;
+let attempts = 0
+let wrongGuesses = 0;
+let Maxattempts = 7;
+
+function getGuess(){
+  while(attempts < Maxattempts){
+let number =prompt('You have to guess it in 7 tries.Guess the number 💁‍♂️');
+let guess = Number(number);
+
+   if (guess > 100 || guess < 1){
+ alert("Invalid input. 🤷‍♂️Please enter a number between 1 to 100.");
+ }else if (guess === secretNumber) {
+      alert(`Congratulations!🙆‍♂️🎉🎊 You guessed the number ${secretNumber} correctly! Your score is ${scores}....`);
+      replayGame();
+      return;
+  } else {
+    Maxattempts--;
+ wrongGuesses++;
+   scores -= 10;
+alert(`🤦‍♂️ Wrong guess! You have ${Maxattempts} attempts left.`);
+
+  }
+  if(wrongGuesses === 3){
+      alert("The number is even 🙎‍♂️");
+ }else if(wrongGuesses === 5){
+  alert("The Number is in the range of bottom half (1-50) 🙎‍♂️");
+ }
+
+}//end of loop
+ alert(`🫤You have used all attempts. The correct number was ${secretNumber}. Best of luck next time!👍`);
+ replayGame();
+  }
+ getGuess();
+
+}
+function replayGame(){
+let  startGameAgain= confirm("Do you want to Play again❓");
+if( startGameAgain){
+  guessTheNumberGame();
+}else{
+  alert("Thanks for playing! Goodbye 🙋‍♂️");
+}
+}
+// replayGame();
+
+guessTheNumberGame();
+
+
+
+</script>
+</html>
